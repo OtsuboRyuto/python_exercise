@@ -1,0 +1,23 @@
+from typing import Callable
+from  collections.abc  import Callable
+
+def not_zero(func : Callable) -> Callable :
+    def not_zero_inner(*args : int) -> None :
+        if 0 in args:
+            print("0が含まれています")
+            exit()
+        else:
+            func(*args)
+    return not_zero_inner
+
+@not_zero
+def add(*args : int) -> int :
+    return sum(args)
+
+if __name__ == '__main__':
+    print("数値1を入力してください -> ", end="")
+    value1: int = int(input())
+    print("数値2を入力してください -> ", end="")
+    value2: int = int(input())
+    print(f"{add(value1, value2)}")
+    
