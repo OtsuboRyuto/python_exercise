@@ -9,3 +9,5 @@ def get_objects() -> Generator:
 generator = get_objects()
 for i in generator:
     print(i)
+print(next(generator))
+x = 100
